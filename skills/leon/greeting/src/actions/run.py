@@ -3,8 +3,8 @@ from bridges.python.src.sdk.types import ActionParams
 from bridges.python.src.sdk.memory import Memory
 
 from datetime import datetime
-from random import randint
 from typing import TypedDict
+import secrets
 
 
 class Owner(TypedDict):
@@ -18,7 +18,7 @@ def run(params: ActionParams) -> None:
     time = datetime.time(datetime.now())
 
     # 1/2 chance to get deeper greetings
-    if randint(0, 1) != 0:
+    if secrets.SystemRandom().randint(0, 1) != 0:
         if time.hour >= 5 and time.hour <= 10:
             return leon.answer({'key': 'morning_good_day'})
         if time.hour == 11:
