@@ -29,7 +29,8 @@ class NetworkRequestOptions(TypedDict, total=False):
 
 
 class Network:
-    def __init__(self, options: NetworkOptions = {'base_url': None}) -> None:
+    def __init__(self, options: Optional[NetworkOptions] = None) -> None:
+        options = {'base_url': None} if options is None else options
         self.options = options
 
     def request(self, options: NetworkRequestOptions) -> NetworkResponse:
