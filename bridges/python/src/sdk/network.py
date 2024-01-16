@@ -48,8 +48,8 @@ class Network:
                 headers={
                     'User-Agent': f"Leon Personal Assistant {LEON_VERSION} - Python Bridge {PYTHON_BRIDGE_VERSION}",
                     **headers
-                }
-            )
+                }, 
+            timeout=60)
 
             data = {}
             try:
