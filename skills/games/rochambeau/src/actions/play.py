@@ -1,7 +1,6 @@
 from bridges.python.src.sdk.leon import leon
 from bridges.python.src.sdk.types import ActionParams
-
-import random
+import secrets
 
 
 def run(params: ActionParams) -> None:
@@ -30,7 +29,7 @@ def run(params: ActionParams) -> None:
         'points': 0
     }
     leon_player = {
-        'handsign': random.choice(list(handsigns)),
+        'handsign': secrets.SystemRandom().choice(list(handsigns)),
         'points': 0
     }
 
