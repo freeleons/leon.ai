@@ -29,6 +29,7 @@ import sys
 import threading
 import timeit
 import xml.parsers.expat
+import defusedxml.minidom
 
 try:
     import gzip
@@ -79,7 +80,6 @@ try:
     except ImportError:
         pass
 except ImportError:
-    from xml.dom import minidom as DOM
     from xml.parsers.expat import ExpatError
 
     ET = None
@@ -1212,7 +1212,7 @@ class Speedtest:
 
         except AttributeError:
             try:
-                root = DOM.parseString(configxml)
+                root = defusedxml.minidom.parseString(configxml)
             except ExpatError:
                 e = get_exception()
                 raise SpeedtestConfigError(
