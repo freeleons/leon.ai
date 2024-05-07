@@ -1442,8 +1442,6 @@ class Speedtest:
                 self.closest.append(s)
                 if len(self.closest) == limit:
                     break
-            else:
-                continue
             break
 
         printer(f"Closest Servers:\n{self.closest!r}", debug=True)
