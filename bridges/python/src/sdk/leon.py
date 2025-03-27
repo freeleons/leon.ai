@@ -1,4 +1,3 @@
-import random
 import sys
 from typing import Union
 from time import sleep
@@ -6,6 +5,7 @@ import json
 
 from .types import AnswerInput, AnswerData, AnswerConfig
 from ..constants import SKILL_CONFIG, INTENT_OBJECT
+import secrets
 
 
 class Leon:
@@ -29,7 +29,7 @@ class Leon:
 
             answers = SKILL_CONFIG['answers'].get(answer_key, '')
             if isinstance(answers, list):
-                answer = answers[random.randrange(len(answers))]
+                answer = answers[secrets.SystemRandom().randrange(len(answers))]
             else:
                 answer = answers
 
