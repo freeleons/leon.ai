@@ -1,7 +1,6 @@
 from bridges.python.src.sdk.leon import leon
 from bridges.python.src.sdk.types import ActionParams
-
-from random import randint
+import secrets
 
 
 def run(params: ActionParams) -> None:
@@ -9,6 +8,6 @@ def run(params: ActionParams) -> None:
     leon.answer({
         'key': 'answer',
         'data': {
-            'answer': randint(0, 100)
+            'answer': secrets.SystemRandom().randint(0, 100)
         }
     })
